@@ -29,7 +29,7 @@ if (isLoggedIn === "true") {
 loginForm.addEventListener("submit", function (event) {
 
     // Prevent page reload
-    
+
     event.preventDefault();
 
     // Get values
@@ -54,14 +54,14 @@ loginForm.addEventListener("submit", function (event) {
     if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
 
         // Save login state
-        sessionStorage.setItem( "isLoggedIn", "true");
+        sessionStorage.setItem("isLoggedIn", "true");
 
         // Redirect
         window.location.replace("./issues.html");
 
     } else {
 
-           // Wrong credentials
+        // Wrong credentials
         loginError.textContent = "Invalid username or password.";
 
     }
