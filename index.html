@@ -28,6 +28,40 @@
                 Sign in to manage your issues
             </p>
         </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="mt-5">
+            <!-- Username -->
+            <div class="mb-3">
+                <label for="username" class="block text-[13px] text-[#111827] mb-1.5">
+                    Username
+                </label>
+
+                <input type="text" id="username" name="username" placeholder="Enter Username" autocomplete="username"
+                    required
+                    class="w-full h-[37px] border border-[#d9dce1] rounded-md px-3 text-[12px] text-[#334155] outline-none focus:border-[#4f46e5]" />
+            </div>
+
+             <!-- Password -->
+            <div>
+                <label for="password" class="block text-[13px] text-[#111827] mb-1.5">
+                    Password
+                </label>
+
+                <input type="password" id="password" name="password" placeholder="Enter Password"
+                    autocomplete="current-password" required
+                    class="w-full h-[37px] border border-[#d9dce1] rounded-md px-3 text-[12px] text-[#334155] outline-none focus:border-[#4f46e5]" />
+            </div>
+
+            <!-- Sign In Button -->
+            <button type="submit"
+                class="w-full h-[37px] mt-4 rounded-md bg-[#4b00ff] hover:bg-[#3d00d6] text-white text-[12px] font-semibold transition duration-200">
+                Sign In
+            </button>
+            <div class="p-2 text-red-500 font-semibold capitalize">
+                <p id="loginError"></p>
+            </div>
+        </form>
       </div>
     
 </body>
