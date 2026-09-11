@@ -235,3 +235,122 @@ function labelHtml(labels = []) {
         )
         .join("");
 }
+
+//    ISSUE CARD
+
+function cardHtml(issue) {
+
+    const isOpen =
+        normalize(issue.status) === "open";
+
+    const borderColor =
+        isOpen ? "#22c55e" : "#8b5cf6";
+
+    const issueId =
+        safeText(issue.id, "");
+
+    const title =
+        safeText(issue.title, "Untitled issue");
+
+    const description =
+        safeText(
+            issue.description,
+            "No description available."
+        );
+
+    const author =
+        safeText(issue.author, "Unknown");
+
+    const priority =
+        safeText(issue.priority, "Unknown");
+
+    return `
+        <article
+            data-id="${escapeHtml(issueId)}"
+            class="issue-card"
+            tabindex="0"
+            role="button"
+            aria-label="Open issue ${escapeHtml(title)}"
+            style="
+                background-color:#ffffff;
+                border:1px solid #e5e7eb;
+                border-top:3px solid ${borderColor};
+                border-radius:9px;
+                padding:16px;
+                cursor:pointer;
+                min-width:0;
+            "
+        >
+
+            <!-- Top -->
+
+            <div
+                style="
+                    display:flex;
+                    align-items:center;
+                    justify-content:space-between;
+                    gap:8px;
+                    margin-bottom:11px;
+                "
+            >
+
+                ${statusBadge(issue.status)}
+
+                <span
+                    style="
+                        font-size:10px;
+                        color:#94a3b8;
+                    "
+                >
+                    #${escapeHtml(issueId)}
+                </span>
+
+            </div>
+
+
+            <!-- Title -->
+
+            <h3
+                style="
+                    margin:0 0 8px;
+                    font-size:14px;
+                    line-height:1.45;
+                    color:#1e293b;
+                    font-weight:700;
+                "
+            >
+                ${escapeHtml(title)}
+            </h3>
+
+
+            <!-- Description -->
+
+            <p
+                style="
+                    margin:0 0 14px;
+                    font-size:12px;
+                    line-height:1.55;
+                    color:#64748b;
+                    display:-webkit-box;
+                    -webkit-line-clamp:3;
+                    -webkit-box-orient:vertical;
+                    overflow:hidden;
+                "
+            >
+                ${escapeHtml(description)}
+            </p>
+
+
+            <!-- Labels -->
+
+            <div
+                style="
+                    display:flex;
+                    flex-wrap:wrap;
+                    gap:6px;
+                    min-height:20px;
+                    margin-bottom:14px;
+                "
+            >
+                ${labelHtml(issue.labels)}
+            </div>
