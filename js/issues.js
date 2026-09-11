@@ -354,3 +354,112 @@ function cardHtml(issue) {
             >
                 ${labelHtml(issue.labels)}
             </div>
+
+                        <!-- Information -->
+
+            <div
+                style="
+                    border-top:1px solid #f1f5f9;
+                    padding-top:12px;
+                    display:flex;
+                    flex-direction:column;
+                    gap:7px;
+                "
+            >
+
+                <!-- Author -->
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                        gap:8px;
+                        font-size:11px;
+                    "
+                >
+
+                    <span
+                        style="color:#94a3b8;"
+                    >
+                        Author
+                    </span>
+
+                    <strong
+                        title="${escapeHtml(author)}"
+                        style="
+                            color:#475569;
+                            font-weight:600;
+                            overflow:hidden;
+                            text-overflow:ellipsis;
+                            white-space:nowrap;
+                        "
+                    >
+                        ${escapeHtml(author)}
+                    </strong>
+
+                </div>
+
+
+                <!-- Priority -->
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                        gap:8px;
+                        font-size:11px;
+                    "
+                >
+
+                    <span
+                        style="color:#94a3b8;"
+                    >
+                        Priority
+                    </span>
+
+                    <strong
+                        style="
+                            color:#475569;
+                            font-weight:600;
+                            text-transform:capitalize;
+                        "
+                    >
+                        ${escapeHtml(priority)}
+                    </strong>
+
+                </div>
+
+
+                <!-- Created -->
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                        gap:8px;
+                        font-size:11px;
+                    "
+                >
+
+                    <span
+                        style="color:#94a3b8;"
+                    >
+                        Created
+                    </span>
+
+                    <strong
+                        style="
+                            color:#475569;
+                            font-weight:600;
+                        "
+                    >
+                        ${formatDate(issue.createdAt)}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </article>
+    `;
+}
